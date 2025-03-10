@@ -1,18 +1,16 @@
 from typing import Optional
-
-from crewai.flow.flow import Flow, listen, router, start
+from datetime import datetime
+from crewai.flow.flow import Flow, listen, router, start, and_
 from pydantic import BaseModel
 
-from self_evaluation_loop_flow.crews.tov_crew.tov_crew import (
-    ToVCrew,
-)
-from self_evaluation_loop_flow.crews.x_post_review_crew.x_post_review_crew import (
-    XPostReviewCrew,
-)
+from self_evaluation_loop_flow.crews.tov_crew.tov_crew import ToVCrew
+from self_evaluation_loop_flow.crews.researcher.research_crew import ResearchCrew
+from self_evaluation_loop_flow.crews.x_post_review_crew.x_post_review_crew import XPostReviewCrew
 
 
 class ShakespeareXPostFlowState(BaseModel):
     x_post: str = ""
+    tov_instructions: str = ""
     feedback: Optional[str] = None
     valid: bool = False
     retry_count: int = 0
@@ -20,20 +18,39 @@ class ShakespeareXPostFlowState(BaseModel):
 
 class ShakespeareXPostFlow(Flow[ShakespeareXPostFlowState]):
 
-    @start("retry")
+    @start()
     def extract_tov(self):
         print("Extracting tone of voice")
-        topic = "Flying cars"
+        
         result = (
             ToVCrew()
             .crew()
-            .kickoff(inputs={"topic": topic, "feedback": self.state.feedback})
+            .kickoff()
         )
 
-        print("X post generated", result.raw)
-        self.state.x_post = result.raw
+        # print("ToV extracted, instructions:", result.raw)
+        self.state.tov_instructions = result.raw
 
-    @router(extract_tov)
+    @start()
+    def research_post_topics(self):
+        print("Researching post topics")
+        result = (
+            ResearchCrew()
+            .crew()
+            .kickoff(inputs={
+                "topic": "ai productivity tools in product management", 
+                "current_year": str(datetime.now().year), 
+                "current_month": str(datetime.now().month),
+                "current_day": str(datetime.now().day)
+                }
+            )
+        )
+
+        print("Researching post topics:", result.raw)
+
+        return "ai productivity tools in product management"
+
+    @listen(and_(extract_tov, research_post_topics))
     def evaluate_x_post(self):
         if self.state.retry_count > 3:
             return "max_retry_exceeded"
@@ -46,10 +63,8 @@ class ShakespeareXPostFlow(Flow[ShakespeareXPostFlowState]):
         print("feedback", self.state.feedback)
         self.state.retry_count += 1
 
-        if self.state.valid:
-            return "complete"
-
-        return "retry"
+        # if self.state.valid:
+        return "complete"
 
     @listen("complete")
     def save_result(self):

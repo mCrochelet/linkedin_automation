@@ -27,7 +27,6 @@ class ToVCrew:
         return Agent(
             config=self.agents_config["expert_copywriter_tov"],
             knowledge=[text_source],
-            # tools=[CharacterCounterTool()],
         )
 
     @task
@@ -44,5 +43,5 @@ class ToVCrew:
             tasks=self.tasks,  # Automatically created by the @task decorator
             process=Process.sequential,
             knowledge_sources=[text_source],
-            verbose=True,
+            verbose=False,
         )

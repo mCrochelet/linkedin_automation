@@ -1,0 +1,7 @@
+research_hot_topics:
+  description: >
+    Research the most relevant and interesting news in {topic}.
+  expected_output: >
+    A list of 5 most relevant and interesting news in {topic}.
+  agent: research_expert
+
