@@ -1,80 +1,79 @@
-# Self Evaluation Loop Flow
+# LinkedIn Post Crew
 
-Welcome to the Self Evaluation Loop Flow project, powered by [crewAI](https://crewai.com). This project showcases a powerful pattern in AI workflows: automatic self-evaluation. By leveraging crewAI's multi-agent system, this flow demonstrates how to set up a Crew that evaluates the responses of other Crews, iterating with feedback to improve results.
+Welcome to the LinkedIn Post Crew project, powered by [crewAI](https://crewai.com). This project creates professional LinkedIn posts on specified topics through an intelligent workflow of AI agents working together. It leverages crewAI's multi-agent system to research, write, review, and refine content in a self-improving loop.
 
 ## Overview
 
-This flow guides you through setting up an automated self-evaluation system using two main Crews: the `ShakespeareanXPostCrew` and the `XPostReviewCrew`. The process involves the following steps:
+This application creates high-quality LinkedIn posts through a collaborative AI workflow with the following steps:
 
-1. **Generate Initial Output**: The `ShakespeareanXPostCrew` generates an initial Shakespearean-style post (X post) on a given topic, such as "Flying cars". This post is crafted to be humorous and playful, adhering to specific character limits and style guidelines.
+1. **Extract Tone of Voice**: Establishes the writing style and tone guidelines for the post.
 
-2. **Evaluate Output**: The `XPostReviewCrew` evaluates the generated post to ensure it meets the required criteria, such as character count and absence of emojis. The crew provides feedback on the post's validity and quality.
+2. **Research the Topic**: Gathers current, relevant information on the specified topic, including citations to credible sources.
 
-3. **Iterate with Feedback**: If the post does not meet the criteria, the flow iterates by regenerating the post with the feedback provided. This iterative process continues until the post is valid or a maximum retry limit is reached.
+3. **Write the Post**: Creates a LinkedIn post based on research findings and tone guidelines.
 
-4. **Finalize and Save**: Once the post is validated, it is finalized and saved for further use. If the maximum retry count is exceeded without achieving a valid post, the flow exits with the last generated post and feedback.
+4. **Review and Validate**: Evaluates the post against quality criteria and provides feedback if necessary.
 
-This pattern of automatic self-evaluation is crucial for developing robust AI systems that can adapt and improve over time, ensuring high-quality outputs through iterative refinement.
+5. **Iterative Refinement**: If the post doesn't meet the criteria, it iterates with feedback until a valid post is created or maximum retry count is reached.
+
+6. **Save the Post**: Once validated, the final post is saved to a file.
+
+The current implementation focuses on creating professional posts about topics with proper citations to relevant sources.
 
 ## Installation
 
 Ensure you have Python >=3.10 <=3.13 installed on your system.
 
-To install CrewAI, run the following command:
+To install the required dependencies:
 
 ```bash
 pip install crewai
 ```
 
-This command will install CrewAI and its necessary dependencies, allowing you to start building and managing AI agents efficiently.
+### Configuration
 
-### Customizing
+1. **Add your API keys into the `.env` file:**
+   - `OPENAI_API_KEY` for AI agent functionality
+   - `SERPER_API_KEY` for web search capabilities
 
-**Add your `OPENAI_API_KEY` into the `.env` file**
+2. **Customize the components:**
+   - Modify `config/agents.yaml` to define your agents' capabilities and roles
+   - Modify `config/tasks.yaml` to define specific tasks for each agent
+   - Adjust crew files in `src/self_evaluation_loop_flow/crews/` to customize agent behaviors
 
-- Modify `src/flow_self_evalulation_loop/config/agents.yaml` to define your agents.
-- Modify `src/flow_self_evalulation_loop/config/tasks.yaml` to define your tasks.
-- Modify `src/flow_self_evalulation_loop/crew.py` to add your own logic, tools, and specific arguments.
-- Modify `src/flow_self_evalulation_loop/main.py` to add custom inputs for your agents and tasks.
+3. **Change the post topic:**
+   - Edit the `post_topic` variable in `src/self_evaluation_loop_flow/main.py`
 
 ## Running the Project
 
-To kickstart your crew of AI agents and begin task execution, run this from the root folder of your project:
+To generate a LinkedIn post, run this from the root folder of your project:
     
 ```bash
 crewai flow kickoff 
 ```
 
+This command initiates the flow, assembling the agents and assigning them tasks as defined in your configuration.
 
-This command initializes the self-evaluation loop flow, assembling the agents and assigning them tasks as defined in your configuration.
+The output will be saved to `post.txt` in the root directory.
 
-The unmodified example will generate a `report.md` file with the output of a research on LLMs in the root folder.
+## Project Components
 
-## Understanding Your Flow
+The project consists of several key components:
 
-The self-evaluation loop flow is composed of 2 Crews. These agents collaborate on a series of tasks, defined in `config/tasks.yaml`, leveraging their collective skills to achieve complex objectives. The `config/agents.yaml` file outlines the capabilities and configurations of each agent in your flow.
+1. **Tone of Voice Crew**: Defines the writing style and guidelines for the post
 
-This flow is centered around two major Crews: the `ShakespeareanXPostCrew` and the `XPostReviewCrew`. The `ShakespeareanXPostCrew` is responsible for generating a Shakespearean-style post (X post) on a given topic, while the `XPostReviewCrew` evaluates the generated post to ensure it meets specific criteria. The process is iterative, using feedback from the review to refine the post until it is valid or a maximum retry limit is reached.
+2. **Research Crew**: Gathers current, relevant information on the specified topic, including credible sources
 
-### Flow Structure
+3. **Post Writer Crew**: Creates a LinkedIn post based on research and tone guidelines
 
-1. **Generate Initial Output**: A Crew generates the initial output based on predefined criteria.
+4. **Post Review Crew**: Validates the post against quality criteria and provides feedback
 
-2. **Evaluate Output**: Another Crew evaluates the output, providing feedback on its validity and quality.
+These components work together in a coordinated flow, defined in `src/self_evaluation_loop_flow/main.py`, to produce a polished final result.
 
-3. **Iterate with Feedback**: If necessary, the initial Crew is re-run with feedback to improve the output.
+## Example Output
 
-4. **Finalize and Save**: Once validated, the output is saved for further use.
-
-By understanding the flow structure, you can see how multiple Crews are orchestrated to work together, each handling a specific part of the self-evaluation process. This modular approach allows for efficient and scalable automation.
-
-## Support
-
-For support, questions, or feedback regarding the Self Evaluation Loop Flow or crewAI:
-
-- Visit our [documentation](https://docs.crewai.com)
-- Reach out to us through our [GitHub repository](https://github.com/joaomdmoura/crewai)
-- [Join our Discord](https://discord.com/invite/X4JWnZnxPb)
-- [Chat with our docs](https://chatg.pt/DWjSBZn)
-
-Let's create wonders together with the power and simplicity of crewAI.
+The system generates professional LinkedIn posts with:
+- Well-researched content
+- Citations to credible sources
+- Professional tone appropriate for the LinkedIn platform
+- Engaging questions to prompt discussion
