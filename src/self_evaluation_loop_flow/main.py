@@ -9,7 +9,7 @@ from self_evaluation_loop_flow.crews.post_writer.post_writer_crew import PostWri
 from self_evaluation_loop_flow.crews.post_review_crew.post_review_crew import PostReviewCrew
 
 
-post_topic = "Impact of ai on the build-buy-partner decisions - does AI make it easier and cheaper to build than buy?"
+post_topic = "Using crewai to write a LinkedIn post, leveraging flows to create a self-evaluation loop"
 
 class ShakespeareXPostFlowState(BaseModel):
     post: str = ""
@@ -123,5 +123,4 @@ def plot():
 
 
 if __name__ == "__main__":
-    plot()
     kickoff()
