@@ -8,9 +8,12 @@ from self_evaluation_loop_flow.crews.researcher.research_crew import ResearchCre
 from self_evaluation_loop_flow.crews.x_post_review_crew.x_post_review_crew import XPostReviewCrew
 
 
+post_topic = "Impact of ai on the build-buy-partner decisions"
+
 class ShakespeareXPostFlowState(BaseModel):
     x_post: str = ""
     tov_instructions: str = ""
+    research_results: str = ""
     feedback: Optional[str] = None
     valid: bool = False
     retry_count: int = 0
@@ -38,7 +41,7 @@ class ShakespeareXPostFlow(Flow[ShakespeareXPostFlowState]):
             ResearchCrew()
             .crew()
             .kickoff(inputs={
-                "topic": "ai productivity tools in product management", 
+                "topic": post_topic, 
                 "current_year": str(datetime.now().year), 
                 "current_month": str(datetime.now().month),
                 "current_day": str(datetime.now().day)
@@ -46,9 +49,8 @@ class ShakespeareXPostFlow(Flow[ShakespeareXPostFlowState]):
             )
         )
 
+        self.state.research_results = result.raw
         print("Researching post topics:", result.raw)
-
-        return "ai productivity tools in product management"
 
     @listen(and_(extract_tov, research_post_topics))
     def evaluate_x_post(self):

@@ -1,6 +1,14 @@
 from crewai import Agent, Crew, Process, Task
 from crewai.project import CrewBase, agent, crew, task
 
+from crewai_tools import (
+    SerperDevTool,
+    WebsiteSearchTool
+)
+
+search_tool = SerperDevTool()
+web_rag_tool = WebsiteSearchTool()
+
 @CrewBase
 class ResearchCrew:
     """Research Crew"""
@@ -13,7 +21,7 @@ class ResearchCrew:
 
         return Agent(
             config=self.agents_config["research_expert"],
-            # todo add tools to get the most relevant information
+            tools=[search_tool, web_rag_tool],
         )
 
     @task
