@@ -1,0 +1,8 @@
+extract_tov:
+  description: >
+    Read the attached knowledge base containing the user's social media posts, analyse the tone of voice and provide a detailed analysis.
+    Do not make up any information, only use the quotes from the posts to support your analysis.
+  expected_output: >
+    Instructions for LLM copywriters so that they can write in the tone of voice of the user.
+  agent: expert_copywriter_tov
+

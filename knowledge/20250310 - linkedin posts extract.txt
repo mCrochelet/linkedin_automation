@@ -1,0 +1,79 @@
+Post text
+"As my time at McKinsey comes to an end this October, I can’t help but reflect on what an amazing journey it’s been.
+
+I’m so grateful to have worked with some of the brightest and most generous mentors, who’ve played a big role in both my personal and professional growth.
+
+I’ve had the chance to work on some truly exciting projects, and it’s been an honor to bring my stone to a few great endeavors alongside incredible clients. Through all the late nights and challenges, it’s the teamwork and shared commitment that have made this experience so fulfilling.
+
+One key lesson I’m taking with me: building products is always a human experience. From my early days as a fresh engineer in Louvain-la-Neuve to building products across EMEA, it’s always been the people that make the difference. The focus, passion, and connections we bring to the work are what really create impact.
+
+I’m excited for the next chapter—new challenges, new opportunities and most importantly, new partnerships to experiment with. 
+Stay tuned for what’s next!"
+"A little over two years ago, I discovered I shared a passion with (yet) another bearded man.
+
+For as long as I can remember, building things has always been a huge source of energy for me. It combines creativity and logic in a way that, to me, makes it the best job in the world.
+
+Building, for me, is as much about the journey as it is about the destination. It’s about everything you learn along the way. Hence, I’ve always loved the chance to work on different products, across various industries, and in all kinds of settings.
+
+So when another bearded man (Timoté Geimer) reached out a couple of years ago to tell me about dualoop, I was immediately struck by our shared vision and values.
+
+Fast forward to today, and I’m thrilled to announce that I’ve joined dualoop to continue supporting and investing in innovation across Europe and the UK.
+
+This new step is all about fueling my passion to help companies—big and small—drive innovation in Europe, alongside an incredible team of talented people. It combines many things I love: the diversity of experiences, the ability to support innovation, and the collaboration with talented leaders, colleagues and clients.
+
+As I settle into this role, if you’d like to connect, grab a (specialty) coffee, or just go for a stroll, feel free to reach out! I’m especially interested in hearing about your own experiences with innovating in Europe!"
+"I am amazed by the latest cursor.sh release 🤯
+
+It took me 20 minutes to create a simple chat application in Next.js and deploy it on Vercel. I've not written code recently, and it would have taken me a while to get back to this.
+
+This served three purposes for me: 
+1. Experiment at incomparable speed. Even with the best development team, translation and communication efforts sometimes get in the way of simple experimentation. 
+2. Jog my memory of frameworks & tools. I've used Next.js & tailwind.css in the past, but my memory isn't what it used to be - using natural language and cursor.sh helped me bootstrap and quickly get in the thick of it.
+3. I had fun! It had been a while since I'd created some software myself.
+
+And you? What do you think about cursor.sh?"
+"Focus is hard
+
+This thought strikes me often as I co-lead dualoop and work with clients on their products and strategies
+
+Focus is essential
+As one of my clients joked, it may sound like “common-sense advice from ChatGPT” but the truth is - common sense often feels elusive in practice. Focus is the cornerstone of (product) strategy, and in my experience, one of the most frequent reason teams falter
+
+Focus is scary
+As a leader, choosing where to focus means making tough calls about what your team will deliver—and just as importantly, what they won’t. It’s about renouncing or delaying ideas that may seem promising, but do not align with the bigger picture right now
+
+Focus is liberating
+We (and our teams) aren’t built for heavy multitasking. Focus frees people up - it empowers teams and individuals to fully commit to a goal, to channel their energy and creativity into what truly matters.
+
+My next thought? Focus isn’t just a strategy; it’s an act of leadership, and as Brenee Brown puts it, that requires integrity and courage"
+"Yesterday, I had the honour of sharing my thoughts on product strategy and how buying and partnering can be effective decisions at all levels of the product and tech organisation. 
+
+Thank you, Bjorn Vuylsteker, for inviting me and Robrecht Vander Haeghen for an insightful conversation! 
+
+For those of you who asked, the slides can be seen using the link in the first comment!"
+"It’s always a pleasure to work with companies such as N-SIDE! 
+The team is sharp and keen to deliver value.
+Their customers are lucky to work with them!"
+"I’m happy to share that I’m now an Expert Engagement Manager | Group Product Manager at McKinsey & Company!
+
+With many lives and experiences at McKinsey & Company, it's always a pleasure to learn and grow in the company of talented colleagues. I am looking forward to expanding hashtag#leapbymckinsey practice in this next chapter ☺️"
+"Je pense, donc je suis; Descartes – If the latest models now think, are they alive? 
+
+
+I have no idea, and I'm not the right person to answer this (though my gut & research tell me they aren't, for now). 
+
+However, as the systems think and achieve higher levels of abstraction, our ability to delegate increases and starts to resemble the way we share tasks between people.
+
+This, in turn, allows us to leverage years of research on how best to collaborate (or prompt) with each other.
+
+Some of the things I was taught as an early manager:
+
+1. Decide if you want to delegate: Not all tasks should be delegated. Even more so when using LLMs has a risk to lower your critical thinking
+
+2. Chose the right person/model: Like everyone, each model has its strengths and weaknesses
+
+3. Be clear and concise: At their core, the models are about predicting the next token. The more fluff you add, the more you drown the signal. 
+
+4. Manage expectations: Define the expected output and success criteria, and if necessary, show examples of what you expect things to look like.
+
+5. Give feedback: Few things are perfect from the start. Provide early and frequent feedback to maximise the likelihood of success."

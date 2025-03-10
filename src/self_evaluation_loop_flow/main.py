@@ -3,8 +3,8 @@ from typing import Optional
 from crewai.flow.flow import Flow, listen, router, start
 from pydantic import BaseModel
 
-from self_evaluation_loop_flow.crews.shakespeare_crew.shakespeare_crew import (
-    ShakespeareanXPostCrew,
+from self_evaluation_loop_flow.crews.tov_crew.tov_crew import (
+    ToVCrew,
 )
 from self_evaluation_loop_flow.crews.x_post_review_crew.x_post_review_crew import (
     XPostReviewCrew,
@@ -21,11 +21,11 @@ class ShakespeareXPostFlowState(BaseModel):
 class ShakespeareXPostFlow(Flow[ShakespeareXPostFlowState]):
 
     @start("retry")
-    def generate_shakespeare_x_post(self):
-        print("Generating Shakespearean X post")
+    def extract_tov(self):
+        print("Extracting tone of voice")
         topic = "Flying cars"
         result = (
-            ShakespeareanXPostCrew()
+            ToVCrew()
             .crew()
             .kickoff(inputs={"topic": topic, "feedback": self.state.feedback})
         )
@@ -33,7 +33,7 @@ class ShakespeareXPostFlow(Flow[ShakespeareXPostFlowState]):
         print("X post generated", result.raw)
         self.state.x_post = result.raw
 
-    @router(generate_shakespeare_x_post)
+    @router(extract_tov)
     def evaluate_x_post(self):
         if self.state.retry_count > 3:
             return "max_retry_exceeded"
