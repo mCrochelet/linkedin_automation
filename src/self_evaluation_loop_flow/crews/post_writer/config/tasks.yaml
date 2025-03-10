@@ -1,0 +1,31 @@
+write_post:
+  description: >
+    Use the research results and tone of voice instructions to write a LinkedIn post on the given topic.
+    You can use a tool to browse the links in the research results but do NOT use other data than the research results.
+    You can also use the previous post and the feedback provided by the revieweras a reference to write the new post.
+
+    # Research results:
+    {research_results}
+
+    # Tone of voice instructions:
+    {tov_instructions}
+
+    # Feedback:
+    {feedback}
+
+    # Guidelines
+    - Use best practices for writing a LinkedIn post (hook, body, call to action).
+    - Follow the tone of voice instructions to the letter
+    - It is impossible to tell that the post is AI generated
+    - The post must provide value to the reader
+    - The post must contain sources in the form of links to the original research results
+    - The post must contain no emojis
+    - The post must contain only the post itself, without additional commentary
+    - The post must be less than 1300 characters
+
+    # Previous post:
+    {previous_post}
+  expected_output: >
+    A LinkedIn post on the given topic.
+  agent: post_writer
+
